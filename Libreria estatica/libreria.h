@@ -1,3 +1,0 @@
-//libreria.h
-
-void saludar();

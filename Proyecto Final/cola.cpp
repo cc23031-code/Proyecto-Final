@@ -3,19 +3,19 @@
 // Constructor 
 Cola::Cola(){
     frente=nullptr;
-    fin=nullptr;
+    final=nullptr;
 }
 //destructor
-cola::~Cola(){
+Cola::~Cola(){
     while(!estaVacia()){
         dequeue();
-    })
+    }
 }
 
-bool Cola::estaVacia(){
+bool Cola::estaVacia() const {
     return frente==nullptr;
 }
  
 void Cola::enqueue(const Llamada& llamada){
     
-}
+}   

@@ -1,7 +1,7 @@
 #ifndef COLA_H //Evitar definiciones múltiples de clases/estructuras
 #define COLA_H
 
-#include <String>
+#include <string>
 struct Llamada
 {
     int id;

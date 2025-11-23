@@ -17,5 +17,13 @@ bool Cola::estaVacia() const {
 }
  
 void Cola::enqueue(const Llamada& llamada){
-    
+    Nodo* nuevo=new Nodo(llamada);
+    nuevo->siguiente=nullptr;
+    if(estaVacia()){
+        frente=nuevo;
+        final=nuevo;
+    } else {
+        final->siguiente=nuevo;
+        final=nuevo;
+    }
 }   

@@ -39,12 +39,4 @@ class Cola
 };
 
 
-
-
-
-
-
-
-
-
 #endif

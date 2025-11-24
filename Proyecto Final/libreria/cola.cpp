@@ -27,7 +27,26 @@ void Cola::enqueue(const Llamada& llamada){
         final=nuevo;
     }
 }   
+Llamada Cola::dequeue() {
+    if (estaVacia()){
+ std::cout << "No se puede eliminar, la cola está vacía" << std::endl;
+        Llamada error;
+        error.id = -1;
+        return error;
+    }
 
+    Nodo* temp = frente;
+    Llamada dato = temp->dato;
+    frente = frente->siguiente;
+    
+    if (frente == nullptr){
+        final = nullptr;
+    }
+    
+    delete temp;
+    tamaño--;
+    return dato;
+}
 int Cola::tiempoEspera() const{
     int total=0;
     Nodo* actual = Cola::frente;

@@ -32,14 +32,14 @@ int Cola::tiempoEspera() const{
     int total=0;
     Nodo* actual = Cola::frente;
     while(actual!=nullptr){
-        total=total+frente->dato.duracion;
+        total=total+actual->dato.duracion;
         actual=actual->siguiente;
     }
     return total;
 }
 
 void Cola::mostrarCola() const{
-    Nodo* actual = Cola::frente;
+    Nodo* actual = frente;
     int esperaAcumulada=0;
     std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada";
     while(actual!=nullptr){

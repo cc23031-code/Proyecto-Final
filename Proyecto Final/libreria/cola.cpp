@@ -59,7 +59,7 @@ int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas l
        //tiempo que la llamada ha esperado es el tiempo acumulado menos el tiempo de llegada
         int tiempoEsperaLlamada = tiempoActual - actual->dato.tiempoLLegada;
         
-        if(tiempoEsperaLlamada > 0){
+        if(tiempoEsperaLlamada < 0){
             tiempoEsperaLlamada=0; // Si la llamada no ha esperado, el tiempo de espera es 0
         }
         tiempoEsperaTotal += tiempoEsperaLlamada;

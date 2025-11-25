@@ -8,9 +8,7 @@ Cola::Cola(){
 }
 //destructor
 Cola::~Cola(){
-    while(!estaVacia()){
-        dequeue();
-    }
+    limpiarCola();
 }
 void Cola::limpiarCola(){
     while(!estaVacia()){

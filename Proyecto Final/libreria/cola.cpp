@@ -67,12 +67,12 @@ void Cola::mostrarCola() const{
     Nodo* actual = frente;
     int posicion=1;
     int esperaAcumulada=0;
-    std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
+   std::string llamadas ;//=//"ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
   while (actual != nullptr) {
     const Llamada& llamada = actual->dato; // Acceder a la llamada almacenada en el nodo
     int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada; // Calcular el tiempo de espera para esta llamada
     
-    llamadas = llamadas + "\n" + 
+   llamadas = llamadas + "\n" + 
                "Posición " + std::to_string(posicion) + ":\n" +
                "  ID: " + std::to_string(llamada.id) + "\n" +
                "  Nombre: " + llamada.nombre + "\n" +

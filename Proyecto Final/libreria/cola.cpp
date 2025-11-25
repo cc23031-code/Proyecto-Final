@@ -17,7 +17,7 @@ bool Cola::estaVacia() const {
 }
  
 void Cola::enqueue(const Llamada& llamada){
-    Nodo* nuevo=new Nodo(llamada);
+    Nodo* nuevo=new Nodo(llamada); // Crear un nuevo nodo
     nuevo->siguiente=nullptr;
     if(estaVacia()){
         frente=nuevo;
@@ -26,12 +26,13 @@ void Cola::enqueue(const Llamada& llamada){
         final->siguiente=nuevo;
         final=nuevo;
     }
+    tamaño++; // Incrementar el tamaño de la cola
 }   
 Llamada Cola::dequeue() {
     if (estaVacia()){
  std::cout << "No se puede eliminar, la cola está vacía" << std::endl;
-        Llamada error;
-        error.id = -1;
+        Llamada error; // Valor de error
+        error.id = -1; // Indicador de error
         return error;
     }
 
@@ -51,7 +52,7 @@ int Cola::tiempoEspera() const{
     int total=0;
     Nodo* actual = Cola::frente;
     while(actual!=nullptr){
-        total=total+actual->dato.duracion;
+        total=total+actual->dato.duracion; // Sumar la duración de cada llamada
         actual=actual->siguiente;
     }
     return total;
@@ -60,7 +61,7 @@ int Cola::tiempoEspera() const{
 void Cola::mostrarCola() const{
        if (estaVacia()) {
         std::cout << "La cola está vacía.\n";
-        return;
+        return; // Salir si la cola está vacía
     }
      std::cout << "\n========== COLA DE LLAMADAS ==========\n";
     Nodo* actual = frente;
@@ -69,7 +70,7 @@ void Cola::mostrarCola() const{
     std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
   while (actual != nullptr) {
     const Llamada& llamada = actual->dato; // Acceder a la llamada almacenada en el nodo
-    int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada;
+    int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada; // Calcular el tiempo de espera para esta llamada
     
     llamadas = llamadas + "\n" + 
                "Posición " + std::to_string(posicion) + ":\n" +
@@ -80,7 +81,7 @@ void Cola::mostrarCola() const{
                "  Tiempo de espera: " + std::to_string(tiempoEspera) + " min\n" +
                "--------------------------------------\n";
     
-    esperaAcumulada += llamada.duracion;
+    esperaAcumulada += llamada.duracion; // Actualizar el tiempo de espera acumulada
     actual = actual->siguiente;
     posicion++;
 }

@@ -69,7 +69,7 @@ void Cola::mostrarCola() const{
     std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada";
   while (actual != nullptr) {
     const Llamada& llamada = actual->dato;
-    int tiempoEspera = esperaAcumulada - ll.tiempoLlegada;
+    int tiempoEspera = esperaAcumulada - llamada.tiempoLlegada;
     
     llamadas = llamadas + "\n" + 
                "Posición " + std::to_string(posicion) + ":\n" +
@@ -80,7 +80,7 @@ void Cola::mostrarCola() const{
                "  Tiempo de espera: " + std::to_string(tiempoEspera) + " min\n" +
                "--------------------------------------\n";
     
-    esperaAcumulada += ll.duracion;
+    esperaAcumulada += llamada.duracion;
     actual = actual->siguiente;
     posicion++;
 }

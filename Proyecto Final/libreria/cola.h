@@ -39,6 +39,7 @@ class Cola
     void mostrarCola() const; //Mostrar todas las llamadas en la cola
     bool estaVacia() const; //Verificar si la cola está vacía
     int tiempoEspera() const; //Calcular el tiempo de espera total de todas las llamadas en la cola
+    void limpiarCola(); //Eliminar todas las llamadas de la cola
 };
 
 

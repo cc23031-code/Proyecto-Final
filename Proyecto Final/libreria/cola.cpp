@@ -48,7 +48,7 @@ Llamada Cola::dequeue() {
     tamaño--;
     return dato;
 }
-int Cola::tiempoEspera() const{
+int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas las llamadas en la cola
     int total=0;
     Nodo* actual = Cola::frente;
     while(actual!=nullptr){

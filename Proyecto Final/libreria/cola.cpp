@@ -4,6 +4,7 @@
 Cola::Cola(){
     frente=nullptr;
     final=nullptr;
+    tamaño=0;
 }
 //destructor
 Cola::~Cola(){

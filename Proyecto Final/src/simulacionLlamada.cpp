@@ -16,7 +16,8 @@ int main(){
     std::cout << "Estado inicial de la cola de llamadas:\n";
      colaLlamadas.mostrarCola() ;
     // std::cout << "Tiempo de espera total: " << colaLlamadas.tiempoEspera() << " minutos\n";
-
+    // Mostrar el tiempo de espera total
+std::cout << "\n TIEMPO DE ESPERA TOTAL: " << colaLlamadas.tiempoEspera() << " MINUTOS\n\n";
     // Simulación de atender llamadas
     std::cout << "Atendiendo llamadas...\n";
     while (!colaLlamadas.estaVacia()) {

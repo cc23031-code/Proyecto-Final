@@ -58,15 +58,32 @@ int Cola::tiempoEspera() const{
 }
 
 void Cola::mostrarCola() const{
+       if (estaVacia()) {
+        std::cout << "La cola está vacía.\n";
+        return 0;
+    }
+     std::cout << "\n========== COLA DE LLAMADAS ==========\n";
     Nodo* actual = frente;
+    int posicion=1;
     int esperaAcumulada=0;
     std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada";
-    while(actual!=nullptr){
-        llamadas=llamadas+"\n"+std::to_string(actual->dato.id)+"\t"+actual->dato.nombre+
-        "\t"+actual->dato.motivo+"\t"+std::to_string(esperaAcumulada)+"\t"+std::to_string(actual->dato.duracion);
-        esperaAcumulada+= actual->dato.duracion;
-        actual=actual->siguiente;
-    }
+  while (actual != nullptr) {
+    const Llamada& llamada = actual->dato;
+    int tiempoEspera = esperaAcumulada - ll.tiempoLlegada;
+    
+    llamadas = llamadas + "\n" + 
+               "Posición " + std::to_string(posicion) + ":\n" +
+               "  ID: " + std::to_string(llamada.id) + "\n" +
+               "  Nombre: " + llamada.nombre + "\n" +
+               "  Motivo: " + llamada.motivo + "\n" +
+               "  Duración estimada: " + std::to_string(llamada.duracion) + " min\n" +
+               "  Tiempo de espera: " + std::to_string(tiempoEspera) + " min\n" +
+               "--------------------------------------\n";
+    
+    esperaAcumulada += ll.duracion;
+    actual = actual->siguiente;
+    posicion++;
+}
 
     std::cout<<llamadas<<"\n";
 }

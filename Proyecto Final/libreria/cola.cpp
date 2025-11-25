@@ -49,13 +49,22 @@ Llamada Cola::dequeue() {
     return dato;
 }
 int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas las llamadas en la cola
-    int total=0;
-    Nodo* actual = Cola::frente;
-    while(actual!=nullptr){
-        total=total+actual->dato.duracion; // Sumar la duración de cada llamada
-        actual=actual->siguiente;
+    if(estaVacia()){
+        return 0; // Si la cola está vacía, el tiempo de espera es 0
+    } 
+    int tiempoEsperaTotal = 0;
+    int esperaAcumulada = 0;
+    Nodo* actual = frente;
+    while(actual != nullptr){
+       //tiempo que la llamada ha esperado es el tiempo acumulado menos el tiempo de llegada
+        int tiempoEsperaLlamada = esperaAcumulada - actual->dato.tiempoLLegada;
+        tiempoEsperaTotal += tiempoEsperaLlamada;
+  // Acumular la duración de la llamada actual para el siguiente cálculo
+        esperaAcumulada += actual->dato.duracion;
+        actual = actual->siguiente;
     }
-    return total;
+  
+    return tiempoEsperaTotal;
 }
 
 void Cola::mostrarCola() const{

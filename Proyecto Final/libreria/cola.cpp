@@ -60,16 +60,16 @@ int Cola::tiempoEspera() const{
 void Cola::mostrarCola() const{
        if (estaVacia()) {
         std::cout << "La cola está vacía.\n";
-        return 0;
+        return;
     }
      std::cout << "\n========== COLA DE LLAMADAS ==========\n";
     Nodo* actual = frente;
     int posicion=1;
     int esperaAcumulada=0;
-    std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada";
+    std::string llamadas="ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
   while (actual != nullptr) {
-    const Llamada& llamada = actual->dato;
-    int tiempoEspera = esperaAcumulada - llamada.tiempoLlegada;
+    const Llamada& llamada = actual->dato; // Acceder a la llamada almacenada en el nodo
+    int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada;
     
     llamadas = llamadas + "\n" + 
                "Posición " + std::to_string(posicion) + ":\n" +

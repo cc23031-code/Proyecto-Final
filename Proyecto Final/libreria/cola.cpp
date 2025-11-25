@@ -13,6 +13,7 @@ Cola::~Cola(){
     }
 }
 
+
 bool Cola::estaVacia() const {
     return frente==nullptr;
 }

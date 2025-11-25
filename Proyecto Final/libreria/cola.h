@@ -32,6 +32,7 @@ class Cola
     public: 
     Cola();
     ~Cola();
+    
 
     void enqueue(const Llamada& llamada); //Agregar una llamada al final de la cola
     Llamada dequeue(); //Eliminar y devolver la llamada al frente de la cola

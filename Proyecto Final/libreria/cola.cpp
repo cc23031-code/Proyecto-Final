@@ -66,6 +66,7 @@ void Cola::mostrarCola() const{
      std::cout << "\n========== COLA DE LLAMADAS ==========\n";
     Nodo* actual = frente;
     int posicion=1; // Posición de la llamada en la cola
+    int tiempoEsperaTotal = 0;// Tiempo de espera total acumulado
     int esperaAcumulada=0;
    std::string llamadas ;//=//"ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
   while (actual != nullptr) {
@@ -87,4 +88,8 @@ void Cola::mostrarCola() const{
 }
 
     std::cout<<llamadas<<"\n";
+    std::cout << "======================================\n";
+    std::cout << "Tiempo de espera total: " << tiempoEsperaTotal << " minutos\n";
+    std::cout << "Duracion total estimada: " << tiempoEspera << " minutos\n";
+    std::cout << "======================================\n";
 }

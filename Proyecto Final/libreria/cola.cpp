@@ -12,6 +12,11 @@ Cola::~Cola(){
         dequeue();
     }
 }
+void Cola::limpiarCola(){
+    while(!estaVacia()){
+        dequeue();
+    }
+}
 
 
 bool Cola::estaVacia() const {

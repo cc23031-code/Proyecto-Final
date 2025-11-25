@@ -73,11 +73,11 @@ void Cola::mostrarCola() const{
     int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada; // Calcular el tiempo de espera para esta llamada
     
    llamadas = llamadas + "\n" + 
-               "Posición " + std::to_string(posicion) + ":\n" +
+               "Posicion " + std::to_string(posicion) + ":\n" +
                "  ID: " + std::to_string(llamada.id) + "\n" +
                "  Nombre: " + llamada.nombre + "\n" +
                "  Motivo: " + llamada.motivo + "\n" +
-               "  Duración estimada: " + std::to_string(llamada.duracion) + " min\n" +
+               "  Duracion estimada: " + std::to_string(llamada.duracion) + " min\n" +
                "  Tiempo de espera: " + std::to_string(tiempoEspera) + " min\n" +
                "--------------------------------------\n";
     

@@ -30,6 +30,12 @@ std::cout << "\n TIEMPO DE ESPERA TOTAL: " << colaLlamadas.tiempoEspera() << " M
 
     std::cout << "Atendiendo llamadas...\n";
 
+    //Llamada llamada4 = {4, "Ana Gomez", "Consulta de movimientos", 6, 4};
+    //colaLlamadas.enqueue(llamada4);
+    //colaLlamadas.mostrarCola();
+    //colaLlamadas.dequeue();
+    //colaLlamadas.mostrarCola(); 
+
     return 0;
   
 

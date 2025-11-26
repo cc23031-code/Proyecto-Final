@@ -74,39 +74,36 @@ int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas l
 }
 
 void Cola::mostrarCola() const{
-       if (estaVacia()) {
-        std::cout << "La cola está vacía.\n";
-        return; // Salir si la cola está vacía
+      if (Cola::estaVacia())
+    {
+        std::cout << "|               NO HAY LLAMADAS EN ESPERA                              |\n";
+        std::cout << "+----------------------------------------------------------------------+\n";
+        return;
     }
-     std::cout << "\n========== COLA DE LLAMADAS ==========\n";
-    Nodo* actual = frente;
-    int posicion=1; // Posición de la llamada en la cola
-    int tiempoDuracionTotal = 0;// Tiempo de espera total acumulado
-    int esperaAcumulada=0;
-   std::string llamadas ;//=//"ID\t Nombre\t Motivo\t Tiempo de Espera \tDuracion Estimada"; // Encabezado de la tabla
-  while (actual != nullptr) {
-    const Llamada& llamada = actual->dato; // Acceder a la llamada almacenada en el nodo
-    int tiempoEspera = esperaAcumulada - llamada.tiempoLLegada; // Calcular el tiempo de espera para esta llamada
-    
-   llamadas = llamadas + "\n" + 
-               "Posicion " + std::to_string(posicion) + ":\n" +
-               "  ID: " + std::to_string(llamada.id) + "\n" +
-               "  Nombre: " + llamada.nombre + "\n" +
-               "  Motivo: " + llamada.motivo + "\n" + 
-               "  Tiempo de llegada: " + std::to_string(llamada.tiempoLLegada) + " minutos\n" +
-               "  Duracion estimada: " + std::to_string(llamada.duracion) + " minutos\n" +
-               "  Tiempo de espera: " + std::to_string(tiempoEspera) + " minutos\n" +
-               "--------------------------------------\n";
-    
-    esperaAcumulada += llamada.duracion; // Actualizar el tiempo de espera acumulada
-    actual = actual->siguiente;
-    posicion++;
-    tiempoDuracionTotal += llamada.duracion;
-}
 
-    std::cout<<llamadas<<"\n";
-    std::cout << "======================================\n";
-    std::cout << "Tiempo de espera estimada: " << tiempoEspera() << " minutos\n";
-    std::cout << "Duracion total estimada: " << tiempoDuracionTotal << " minutos\n";
-    std::cout << "======================================\n";
+    int tiempoDuracionTotal = 0; // Tiempo de espera total acumulado
+    int esperaAcumulada = 0;
+    Nodo *actual = frente;
+
+    std::cout << "\n+------+----------------------+--------------------------------+----------------+----------------+----------------+\n";
+    std::cout <<    "| ID   | Nombre               | Motivo                         | Llegada (min)  | Duración (min) | Espera (min)   |\n";
+    std::cout <<   "+------+----------------------+--------------------------------+----------------+----------------+----------------+\n";
+
+    while (actual != nullptr)
+    {
+        const Llamada &llamada = actual->dato;
+        std::cout << "| "
+                  << std::setw(4) << llamada.id << " | "
+                  << std::setw(20) << llamada.nombre << " | "
+                  << std::setw(30) << llamada.motivo << " | "
+                  << std::setw(14) << llamada.tiempoLLegada << " | "
+                  << std::setw(14) << llamada.duracion << " | "
+                  << std::setw(14) << std::to_string(tiempoEspera()) << " |\n";
+
+        esperaAcumulada += llamada.duracion; // Actualizar el tiempo de espera acumulada
+        actual = actual->siguiente;
+        tiempoDuracionTotal += llamada.duracion;
+    }
+
+    std::cout << "+------+----------------------+--------------------------------+-----------------+---------------+----------------+\n";
 }

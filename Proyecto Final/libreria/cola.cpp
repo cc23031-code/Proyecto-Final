@@ -36,9 +36,7 @@ void Cola::enqueue(const Llamada& llamada){// Agregar una llamada al final de la
 Llamada Cola::dequeue() {
     if (estaVacia()){
  std::cout << "No se puede eliminar, la cola está vacía" << std::endl;
-        Llamada error; // Valor de error
-        error.id = -1; // Indicador de error
-        return error;
+     throw std::runtime_error("No se puede eliminar, la cola está vacía");
     }
 
     Nodo* temp = frente; // Almacenar el nodo frente temporalmente

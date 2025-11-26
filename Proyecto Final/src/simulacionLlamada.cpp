@@ -32,7 +32,7 @@ while (!colaLlamadas.estaVacia()) {
 }
 
 std::cout << "\n========== FIN DEL PROCESO ==========\n";
-std::cout << "Atendiendo llamadas...\n";
+
 
 //Llamada llamada4 = {4, "Ana Gomez", "Consulta de movimientos", 6, 4};
 //colaLlamadas.enqueue(llamada4);

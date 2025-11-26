@@ -8,23 +8,27 @@ Cola::Cola(){
 }
 //destructor
 Cola::~Cola(){
+    limpiarCola();
+}
+void Cola::limpiarCola(){
     while(!estaVacia()){
         dequeue();
     }
 }
 
+
 bool Cola::estaVacia() const {
     return frente==nullptr;
 }
  
-void Cola::enqueue(const Llamada& llamada){
+void Cola::enqueue(const Llamada& llamada){// Agregar una llamada al final de la cola
     Nodo* nuevo=new Nodo(llamada); // Crear un nuevo nodo
-    nuevo->siguiente=nullptr;
+    nuevo->siguiente=nullptr; // El siguiente del nuevo nodo es nulo
     if(estaVacia()){
         frente=nuevo;
         final=nuevo;
     } else {
-        final->siguiente=nuevo;
+        final->siguiente=nuevo; // El siguiente del final actual apunta al nuevo nodo
         final=nuevo;
     }
     tamaño++; // Incrementar el tamaño de la cola
@@ -32,13 +36,11 @@ void Cola::enqueue(const Llamada& llamada){
 Llamada Cola::dequeue() {
     if (estaVacia()){
  std::cout << "No se puede eliminar, la cola está vacía" << std::endl;
-        Llamada error; // Valor de error
-        error.id = -1; // Indicador de error
-        return error;
+     throw std::runtime_error("No se puede eliminar, la cola está vacía");
     }
 
-    Nodo* temp = frente;
-    Llamada dato = temp->dato;
+    Nodo* temp = frente; // Almacenar el nodo frente temporalmente
+    Llamada dato = temp->dato; // Obtener el dato del nodo frente
     frente = frente->siguiente;
     
     if (frente == nullptr){
@@ -58,7 +60,7 @@ int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas l
     Nodo* actual = frente;
     while(actual != nullptr){
        //tiempo que la llamada ha esperado es el tiempo acumulado menos el tiempo de llegada
-        int tiempoEsperaLlamada = tiempoActual - actual->dato.tiempoLLegada;
+        int tiempoEsperaLlamada = tiempoActual - actual->dato.tiempoLLegada; // Calcular el tiempo de espera para esta llamada
         
         if(tiempoEsperaLlamada < 0){
             tiempoEsperaLlamada=0; // Si la llamada no ha esperado, el tiempo de espera es 0

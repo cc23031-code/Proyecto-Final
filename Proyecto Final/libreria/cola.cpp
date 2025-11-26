@@ -105,6 +105,8 @@ void Cola::mostrarCola() const{
     }
 
     std::cout << "+------+----------------------+--------------------------------+----------------+----------------+----------------+\n";
-    std::cout << "Tiempo total de espera: " << esperaAcumulada << " minutos\n";
+   
+    std::cout << " Tiempo total de servicio: " << esperaAcumulada << " minutos \n";
+
 
 }

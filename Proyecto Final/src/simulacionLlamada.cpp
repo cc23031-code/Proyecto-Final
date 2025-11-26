@@ -25,6 +25,7 @@ std::cout << "\n TIEMPO DE ESPERA TOTAL: " << colaLlamadas.tiempoEspera() << " M
     while (!colaLlamadas.estaVacia()) {
         Llamada atendida = colaLlamadas.dequeue();
         std::cout << "Atendiendo llamada ID: " << atendida.id << ", Nombre: " << atendida.nombre << "\n";
+        colaLlamadas.mostrarCola();
     }
 
     std::cout << "Atendiendo llamadas...\n";

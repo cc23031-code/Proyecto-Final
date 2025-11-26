@@ -20,13 +20,13 @@ int main(){
     // Mostrar el tiempo de espera total
 std::cout << "\n TIEMPO DE ESPERA TOTAL: " << colaLlamadas.tiempoEspera() << " MINUTOS\n\n";
     // Simulación de atender llamadas
-    std::cout << "Atendiendo llamadas...\n";
+    std::cout << "Llamadas atendidas:\n";
     while (!colaLlamadas.estaVacia()) {
         Llamada atendida = colaLlamadas.dequeue();
         std::cout << "Atendiendo llamada ID: " << atendida.id << ", Nombre: " << atendida.nombre << "\n";
     }
 
-    std::cout << "Todas las llamadas han sido atendidas.\n";
+    std::cout << "Atendiendo llamadas...\n";
 
     return 0;
   

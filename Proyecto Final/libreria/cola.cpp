@@ -110,7 +110,6 @@ void Cola::mostrarCola() const{
 
     std::cout<<llamadas<<"\n";
     std::cout << "======================================\n";
-    std::cout << "Tiempo de espera estimada: " << tiempoEspera() << " minutos\n";
     std::cout << "Duracion total estimada: " << tiempoDuracionTotal << " minutos\n";
     std::cout << "======================================\n";
 }

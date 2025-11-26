@@ -75,8 +75,8 @@ int Cola::tiempoEspera() const{ // Calcular el tiempo de espera total de todas l
     return tiempoEsperaTotal;
 }
 
-void Cola::mostrarCola() const{
-     if (Cola::estaVacia()) {
+void Cola::mostrarCola() const {
+    if (Cola::estaVacia()) {
         std::cout << "|               NO HAY LLAMADAS EN ESPERA                              |\n";
         std::cout << "+----------------------------------------------------------------------+\n";
         return;
@@ -105,8 +105,7 @@ void Cola::mostrarCola() const{
     }
 
     std::cout << "+------+----------------------+--------------------------------+----------------+----------------+----------------+\n";
-   
-    std::cout << " Tiempo total de servicio: " << esperaAcumulada << " minutos \n";
+    std::cout << ">> Tiempo de espera (clientes): " << tiempoEspera() << " minutos\n";
 
 
 }
